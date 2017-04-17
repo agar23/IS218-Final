@@ -1,4 +1,4 @@
-<?php include 'view/header.php'; ?>
+<?php include 'View/header.php'; ?>
 
 <form action="main.php">
   <div class="imgcontainer">
@@ -16,4 +16,4 @@
 </div>
 </form>
 
-<?php include 'view/footer.php'; ?>
+<?php include 'View/footer.php'; ?>
