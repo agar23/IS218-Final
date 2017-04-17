@@ -11,9 +11,9 @@
   <input type=text name="password" placeholder="Enter Password" id="password" > <br>
 <button type="submit">Login</button>
 </div>
-<div class="container" style="background-color:#f1f1f1">
-  <span class="psw"> <a href="#">Register?</a></span>
-</div>
+
+  <span class="psw"> <a href="Register/index.php">Register?</a></span>
+
 </form>
 
 <?php include 'View/footer.php'; ?>
