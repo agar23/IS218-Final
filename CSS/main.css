@@ -1,6 +1,7 @@
 /*Background Image*/
 html {
     background-image: url("../Pictures/back.jpg");
+    background-image: no-repeat;
 }
 
 /* Bordered form */
