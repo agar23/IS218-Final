@@ -1,14 +1,14 @@
 <?php include 'View/header.php'; ?>
 
-<form action="main.php">
+<form action="System/Main.php" method="post">
   <div class="imgcontainer">
     <img src="Pictures/login.png" alt="Avatar" class="avatar">
   </div>
   <div class="container">
 <label for="EnterUsername"> Username </label>
-  <input type=text name="username" placeholder="Enter Username" id="username" > <br>
+  <input type=text name="username" placeholder="Enter Username" id="username" required> <br>
 <label for="EnterPassword"> Password </label>
-  <input type=text name="password" placeholder="Enter Password" id="password" > <br>
+  <input type=password name="password" placeholder="Enter Password" id="password" required> <br>
 <button type="submit">Login</button>
 </div>
 

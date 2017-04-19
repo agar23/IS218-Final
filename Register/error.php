@@ -1,5 +1,7 @@
 <?php include '../View/header2.php'; ?>
 
+<p> That Email address is already in use! please enter a different one! </p>
+
 <form action="second.php" method="post">
   <div class="container">
     <label for="FirstName"> First Name </label>

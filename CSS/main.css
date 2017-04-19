@@ -5,7 +5,7 @@ html {
 }
 
 /* Bordered form */
-form {
+form, h2{
     border: 3px;
     margin: auto;
     width: 25%;
@@ -22,9 +22,28 @@ input[type=text], input[type=password], input[type=date], select {
     box-sizing: border-box;
 }
 
+/* for header */
+h2{
+    border: 3px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
 
+/* button in congrats page */
+ul{
+  text-align: center;
+}
 
-
+/*button in congrats page */
+#b2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+}
 
 /* Set a style for all buttons */
 button {
@@ -65,4 +84,11 @@ img.avatar {
 span.psw {
     float: right;
     padding-top: 1px;
+}
+
+p{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
 }
