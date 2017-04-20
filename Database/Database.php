@@ -136,3 +136,16 @@ function get_email($Email) {
     $statement->closeCursor();
     return $product;
 }
+
+function get_pass($Email, $Password) {
+    global $db;
+    $query = 'SELECT * FROM users
+              WHERE EMail = :EMail and Password = :Password';
+    $statement = $db->prepare($query);
+    $statement->bindValue(":EMail", $Email);
+		$statement->bindValue(":Password", $Password);
+    $statement->execute();
+    $product = $statement->fetch();
+    $statement->closeCursor();
+    return $product;
+}
