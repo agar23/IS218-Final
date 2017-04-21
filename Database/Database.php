@@ -149,3 +149,40 @@ function get_pass($Email, $Password) {
     $statement->closeCursor();
     return $product;
 }
+
+function get_incomplete_items($UserID){
+	  global $db;
+    $query = 'SELECT * FROM to_do_items
+              WHERE Completed = "0" and UserID = :UserID';
+    $statement = $db->prepare($query);
+		$statement->bindValue(':UserID',$UserID);
+		$statement->execute();
+    $product = $statement->fetchALL();
+    $statement->closeCursor();
+    return $product;
+}
+
+
+function get_complete_items($UserID){
+	  global $db;
+    $query = 'SELECT * FROM to_do_items
+              WHERE Completed = "1" and UserID = :UserID';
+    $statement = $db->prepare($query);
+		$statement->bindValue(':UserID',$UserID);
+		$statement->execute();
+    $product = $statement->fetchALL();
+    $statement->closeCursor();
+    return $product;
+}
+
+function get_UserID($Email){
+	global $db;
+	$query = 'SELECT UserID FROM users
+						WHERE EMail = :Email';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':Email',$Email);
+	$statement->execute();
+	$UserID= $statement->fetch();
+	$statement->closeCursor();
+	return $UserID;
+}

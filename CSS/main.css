@@ -4,6 +4,13 @@ html {
     background-image: no-repeat;
 }
 
+#b5 {
+    background-image: url("../Pictures/back.jpg");
+    background-image: no-repeat;
+}
+
+
+
 /* Bordered form */
 form, h2{
     border: 3px;
@@ -98,4 +105,10 @@ p{
   font-weight: bold;
   font-size: 16px;
   color: black;
+}
+
+th, td{
+
+  padding-left:5em;
+
 }

@@ -1,4 +1,4 @@
-<?php include '../View/header2.php'; ?>
+<?php include '../View/header3.php'; ?>
 <?php
   include_once '../Database/Database.php';
 
@@ -7,6 +7,9 @@
 
   $RetEmail=get_email($Username);
   $RetPass=get_pass($Username, $Password);
+  $RetID=get_UserID($Username);
+
+  $UserID=$RetID[0];
 
   if (empty($RetEmail)){
 
@@ -18,9 +21,7 @@
 
   }else{
 
-    echo "   <p id='b3'> Welcome back $Username! | ";
-    echo "   <span id='b4'> <a href='../index.php'>logout</a></span> </p> ";
+    include 'home.php';
 
   }
  ?>
-<?php include '../View/footer.php'; ?>
