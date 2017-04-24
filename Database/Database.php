@@ -222,6 +222,31 @@ function add_task($Task, $DueDate, $UserID) {
     $statement->closeCursor();
 }
 
+function get_task($TaskID){
+	global $db;
+	$query = 'SELECT * FROM to_do_items
+						WHERE taskID = :taskID';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':taskID',$TaskID);
+	$statement->execute();
+	$Task= $statement->fetch();
+	$statement->closeCursor();
+	return $Task;
+}
+
+function modify_task($Task, $DueDate, $TaskID){
+	global $db;
+	$query = 'UPDATE to_do_items
+						SET task = :task, DueDate = :duedate
+						WHERE taskID = :taskID';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':task', $Task);
+	$statement->bindValue(':duedate', $DueDate);
+	$statement->bindValue(':taskID', $TaskID);
+	$statement->execute();
+	$statement->closeCursor();
+}
+
 
 
 

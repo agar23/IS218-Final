@@ -35,6 +35,14 @@
     header("Refresh:0");
   }
 
+  $TaskID2 = $_SESSION['taskID2'];
+  $ModifyItem = filter_input(INPUT_POST, 'task1');
+  $ModifyDate = filter_input(INPUT_POST, 'duedate1');
+  if (!empty($ModifyItem)){
+    modify_task($ModifyItem, $ModifyDate, $TaskID2);
+    header("Refresh:0");
+  }
+
 ?>
 
 <p id='b3'> Welcome back <?php echo $Username ?>! |
@@ -62,7 +70,10 @@
                       <input type="hidden" name="task_id" value="<?php echo $tasks['taskID']; ?>" >
                       <td><input type="submit" id="delete" name="delete" value="Delete" /></td>
                   </form>
-                  <td id="tRows"><button id="edit" type="submit">Edit</button></td>
+                  <form action="edit.php" method="post" >
+                        <input type="hidden" name="task_id1" value="<?php echo $tasks['taskID']; ?>" >
+                        <td id="tRows"><input type="submit" id="edit" name="delete" value="Edit" /></td>
+                  </form>
                   <td id="tswitch">
                       <label class="switch">
                       <input type="checkbox">
@@ -87,7 +98,6 @@
                       <input type="hidden" name="task_id" value="<?php echo $ctasks['taskID']; ?>" >
                       <td><input type="submit" id="delete" name="delete" value="Delete" /></td>
                   </form>
-                  <td id="tRows"><button id="edit" type="submit">Edit</button></td>
                   <td id="tswitch">
                       <label class="switch" >
                       <input type="checkbox" checked>

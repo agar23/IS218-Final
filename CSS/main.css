@@ -125,7 +125,7 @@ p{
   color: red;
 }
 
-#b7{
+#b7, #etask{
   text-align: center;
   font-weight: bold;
   font-size: 18px;
@@ -167,3 +167,5 @@ th, td{
   border-radius: 15px;
   background-color: #70dc70;
 }
+
+.centerTable { margin: 0px auto; }
