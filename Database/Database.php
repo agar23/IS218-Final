@@ -186,3 +186,33 @@ function get_UserID($Email){
 	$statement->closeCursor();
 	return $UserID;
 }
+
+function get_name($Email){
+	global $db;
+	$query = 'SELECT FName,LName FROM users
+						WHERE EMail = :Email';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':Email',$Email);
+	$statement->execute();
+	$UserID= $statement->fetch();
+	$statement->closeCursor();
+	return $UserID;
+
+}
+function delete_task($task_id) {
+    global $db;
+    $query = 'DELETE FROM to_do_items
+              WHERE taskID = :taskID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':taskID', $task_id);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+
+
+
+
+
+
+?>

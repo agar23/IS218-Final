@@ -21,7 +21,11 @@
 
   }else{
 
-    include 'home.php';
+      session_start();
+
+      $_SESSION['username'] = $Username;
+      $_SESSION['passwrod'] = $Password;
+      header("Location: home.php");
 
   }
  ?>

@@ -13,7 +13,6 @@
 </div>
 
   <span class="psw"> <a href="Register/index.php">Register?</a></span>
-
+<p><a href="System/action.php?action=list_products"></a></p>
 </form>
-
 <?php include 'View/footer.php'; ?>
