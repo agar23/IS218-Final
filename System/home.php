@@ -12,6 +12,7 @@
   $RetPass=get_pass($Username, $Password);
   $RetName=get_name($Username);
 
+
   $UserID=$RetID[0];
 
   $FName=$RetName[0];
@@ -27,6 +28,12 @@
     header("Refresh:0");
   }
 
+  $AddItem = filter_input(INPUT_POST, 'task');
+  $DueDate = filter_input(INPUT_POST, 'duedate');
+  if (!empty($AddItem)){
+    add_task($AddItem,$DueDate,$UserID);
+    header("Refresh:0");
+  }
 
 ?>
 
@@ -35,7 +42,10 @@
 
 <p id="b7"> <?php echo "$FName $LName"; ?>
 
-<h1> To-Do Items  <button type="button" class="btn btn-success btn-circle">+</button></h1>
+<form action="add.php" method="post" id="addform">
+  <h1> To-Do Items  <input type="submit" id="addbu" class="btn btn-success btn-circle" value="+" /></h1>
+</form>
+
           <table>
             <tr>
                 <th>Task&nbsp;</th>
@@ -47,8 +57,8 @@
               <tr>
                   <td><?php echo $tasks['Task']; ?></td>
                   <td><?php echo $tasks['Date added']; ?></td>
-                  <td><?php echo $tasks['Due Date']; ?></td>
-                  <form action="home.php" method="post">
+                  <td><?php echo $tasks['DueDate']; ?></td>
+                  <form action="home.php" method="post" >
                       <input type="hidden" name="task_id" value="<?php echo $tasks['taskID']; ?>" >
                       <td><input type="submit" id="delete" name="delete" value="Delete" /></td>
                   </form>
@@ -72,7 +82,7 @@
               <tr>
                   <td><?php echo $ctasks['Task']; ?></td>
                   <td><?php echo $ctasks['Date added']; ?></td>
-                  <td><?php echo $ctasks['Due Date']; ?></td>
+                  <td><?php echo $ctasks['DueDate']; ?></td>
                   <form action="home.php" method="post">
                       <input type="hidden" name="task_id" value="<?php echo $ctasks['taskID']; ?>" >
                       <td><input type="submit" id="delete" name="delete" value="Delete" /></td>

@@ -197,7 +197,6 @@ function get_name($Email){
 	$UserID= $statement->fetch();
 	$statement->closeCursor();
 	return $UserID;
-
 }
 function delete_task($task_id) {
     global $db;
@@ -209,7 +208,19 @@ function delete_task($task_id) {
     $statement->closeCursor();
 }
 
-
+function add_task($Task, $DueDate, $UserID) {
+    global $db;
+    $query = 'INSERT INTO to_do_items
+                 (Task, DueDate, UserID)
+              VALUES
+                 (:task, :duedate, :userid )';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':task', $Task);
+    $statement->bindValue(':duedate', $DueDate);
+    $statement->bindValue(':userid', $UserID);
+    $statement->execute();
+    $statement->closeCursor();
+}
 
 
 

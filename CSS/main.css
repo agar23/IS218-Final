@@ -18,8 +18,15 @@ form, h2{
     font-weight: bold;
 }
 
+#addform{
+  border: 1px;
+  width: 100%;
+  font-weight: bold;
+}
+
+
 /* Full-width inputs */
-input[type=text], input[type=password], input[type=date], select {
+input[type=text], input[type=password], input[type=date], select, input[type=datetime-local] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -61,12 +68,6 @@ button {
     cursor: pointer;
     width: 100%;
 }
-
-#add{
-  height: 5px;
-  width: 5px;
-}
-
 
 #delete {
     background-color: #ff3333 ;
@@ -156,17 +157,13 @@ th, td{
 
 }
 
-
-
-
-
-
 .btn-circle {
   width: 30px;
   height: 30px;
   text-align: center;
-  padding: 6px 0;
+  padding: 2px 0;
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
+  background-color: #70dc70;
 }
