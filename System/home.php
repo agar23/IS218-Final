@@ -28,6 +28,18 @@
     header("Refresh:0");
   }
 
+  $TaskID2 = filter_input(INPUT_POST, 'task_id2');
+  if (!empty($TaskID2)){
+    complte_task($TaskID2);
+    header("Refresh:0");
+  }
+
+  $TaskID3 = filter_input(INPUT_POST, 'task_id3');
+  if (!empty($TaskID3)){
+    incomplte_task($TaskID3);
+    header("Refresh:0");
+  }
+
   $AddItem = filter_input(INPUT_POST, 'task');
   $DueDate = filter_input(INPUT_POST, 'duedate');
   if (!empty($AddItem)){
@@ -74,10 +86,10 @@
                         <input type="hidden" name="task_id1" value="<?php echo $tasks['taskID']; ?>" >
                         <td id="tRows"><input type="submit" id="edit" name="delete" value="Edit" /></td>
                   </form>
-                  <td id="tswitch">
-                      <label class="switch">
-                      <input type="checkbox">
-                      <div class="slider round"></div></label></td>
+                  <form action="home.php" method="post" >
+                      <input type="hidden" name="task_id2" value="<?php echo $tasks['taskID']; ?>" >
+                      <td id="tswitch"><input type="image" name="check" value="check" src="../Pictures/check.png" /></td>
+                  </form>
               </tr>
               <?php endforeach; ?>
           </table>
@@ -98,10 +110,10 @@
                       <input type="hidden" name="task_id" value="<?php echo $ctasks['taskID']; ?>" >
                       <td><input type="submit" id="delete" name="delete" value="Delete" /></td>
                   </form>
-                  <td id="tswitch">
-                      <label class="switch" >
-                      <input type="checkbox" checked>
-                      <div class="slider round"></div></label></td>
+                  <form action="home.php" method="post" >
+                      <input type="hidden" name="task_id3" value="<?php echo $ctasks['taskID']; ?>" >
+                      <td id="tRows"><input type="image" id="b11" name="icheck" value="icheck" src="../Pictures/close.png" /></td>
+                  </form>
               </tr>
               <?php endforeach; ?>
           </table>

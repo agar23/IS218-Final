@@ -35,6 +35,14 @@ input[type=text], input[type=password], input[type=date], select, input[type=dat
     box-sizing: border-box;
 }
 
+input[type=image]{
+  width: 15%;
+}
+
+#b11{
+  width: 45%;
+}
+
 /* for header */
 h2{
     border: 3px;
@@ -90,8 +98,8 @@ button {
 
 
 /* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.8;
+input[type=image]:hover {
+    opacity: 0.4;
 }
 
 

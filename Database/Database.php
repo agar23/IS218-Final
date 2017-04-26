@@ -29,7 +29,7 @@ else {
 	$hostname = "localhost";
 	$username = "root";
 	$password = "";
-	$database = "Final";
+	$database = "Final5";
 
 	try {
 		$db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
@@ -153,7 +153,7 @@ function get_pass($Email, $Password) {
 function get_incomplete_items($UserID){
 	  global $db;
     $query = 'SELECT * FROM to_do_items
-              WHERE Completed = "0" and UserID = :UserID';
+              WHERE Completed = "0" and UserID = :UserID order by `DueDate`';
     $statement = $db->prepare($query);
 		$statement->bindValue(':UserID',$UserID);
 		$statement->execute();
@@ -166,7 +166,7 @@ function get_incomplete_items($UserID){
 function get_complete_items($UserID){
 	  global $db;
     $query = 'SELECT * FROM to_do_items
-              WHERE Completed = "1" and UserID = :UserID';
+              WHERE Completed = "1" and UserID = :UserID order by `DueDate`';
     $statement = $db->prepare($query);
 		$statement->bindValue(':UserID',$UserID);
 		$statement->execute();
@@ -242,6 +242,28 @@ function modify_task($Task, $DueDate, $TaskID){
 	$statement = $db->prepare($query);
 	$statement->bindValue(':task', $Task);
 	$statement->bindValue(':duedate', $DueDate);
+	$statement->bindValue(':taskID', $TaskID);
+	$statement->execute();
+	$statement->closeCursor();
+}
+
+function complte_task($TaskID){
+	global $db;
+	$query = 'UPDATE to_do_items
+						SET Completed = "1"
+						WHERE taskID = :taskID';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':taskID', $TaskID);
+	$statement->execute();
+	$statement->closeCursor();
+}
+
+function incomplte_task($TaskID){
+	global $db;
+	$query = 'UPDATE to_do_items
+						SET Completed = "0"
+						WHERE taskID = :taskID';
+	$statement = $db->prepare($query);
 	$statement->bindValue(':taskID', $TaskID);
 	$statement->execute();
 	$statement->closeCursor();
