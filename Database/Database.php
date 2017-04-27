@@ -269,7 +269,17 @@ function incomplte_task($TaskID){
 	$statement->closeCursor();
 }
 
-
+function change_pass($Pass, $UserID){
+	global $db;
+	$query = 'UPDATE users
+						SET Password = :password
+						WHERE UserID = :userid';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':password', $Pass);
+	$statement->bindValue(':userid', $UserID);
+	$statement->execute();
+	$statement->closeCursor();
+}
 
 
 

@@ -58,7 +58,7 @@
 ?>
 
 <p id='b3'> Welcome back <?php echo $Username ?>! |
-<span id='b4'> <a href='../index.php'>logout</a></span> </p>
+<span id='b4'> <a href='../index.php'>logout</a></span> | <span id='b4'> <a href='changepass.php'>Change Password</a></span></p>
 
 <p id="b7"> <?php echo "$FName $LName"; ?>
 
